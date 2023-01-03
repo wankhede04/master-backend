@@ -1,7 +1,7 @@
 import Liquidation from '../../service/scheduler/Liquidation';
+import { getPositioning, getAccountBalance } from '../../utils/contracts';
 
-export default (): void => {
-  console.log('Liquidate ...');
+export default async (): Promise<void> => {
   const liquidation = new Liquidation();
-  liquidation.liquidate();
+  await liquidation.liquidate();
 };
