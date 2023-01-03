@@ -69,6 +69,10 @@ type Environment = {
   GMAIL_CLIENT_SECRET: string;
   GMAIL_REFRESH_TOKEN: string;
   GMAIL_PASSWORD: string;
+  NETWORK: string;
+  ALCHEMY_API_KEY: string;
+  POSITIONING_CONTRACT_ADDRESS: string;
+  ACCOUNT_BALANCE_ADDRESS: string;
 };
 
 export type Env = Readonly<Environment & CleanEnv>;
@@ -125,6 +129,10 @@ const env: Env = cleanEnv<Environment>(process.env, {
   GMAIL_CLIENT_ID: str({ default: undefined }),
   GMAIL_CLIENT_SECRET: str({ default: undefined }),
   GMAIL_REFRESH_TOKEN: str({ default: undefined }),
+  NETWORK: str({ default: 'goerli' }),
+  ALCHEMY_API_KEY: str(),
+  POSITIONING_CONTRACT_ADDRESS: str(),
+  ACCOUNT_BALANCE_ADDRESS: str(),
 });
 
 export default env;
