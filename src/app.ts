@@ -15,7 +15,7 @@ import liquidate from './controller/order/liquidate.order';
 const app = express();
 
 // Cron expression generator https://crontab.cronhub.io/
-schedule.scheduleJob('* * * * *', () => {
+schedule.scheduleJob('* * * * *', async () => {
   // eslint-disable-next-line no-console
   console.log('The answer to life, the universe, and everything!', new Date().getTime());
   // execute service to check and liquidate a trader
