@@ -5,12 +5,22 @@ import compression from 'compression';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import cors from 'cors';
+import schedule from 'node-schedule';
 
 import { AppError, NotFoundError } from './error';
 import config from './config';
 import routes from './route';
+import liquidate from './controller/order/liquidate.order';
 
 const app = express();
+
+// Cron expression generator https://crontab.cronhub.io/
+schedule.scheduleJob('* * * * *', () => {
+  // eslint-disable-next-line no-console
+  console.log('The answer to life, the universe, and everything!', new Date().getTime());
+  // execute service to check and liquidate a trader
+  liquidate();
+});
 
 app.set('port', config.PORT);
 
