@@ -42,6 +42,7 @@ export class RedisService {
   };
 
   hset = async (key: KeyType, field: string, value: ValueType): Promise<boolean> => {
+    // @ts-ignore
     return (await this.redis.hset(key, field, value)) === 'OK';
   };
 

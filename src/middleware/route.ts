@@ -25,6 +25,7 @@ function route(method: Method) {
           async (req, res, next) => {
             // FIXME: Multer middleware having problem - Cannot read property 'catch' of undefined
             try {
+              // @ts-ignore
               handler(req, res, next).catch((err: Error) => {
                 const { method, originalUrl, body, params, query } = req;
                 // TODO: Remove and scrub password

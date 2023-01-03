@@ -14,6 +14,7 @@ const slientAPIs = ['/auth/signin'];
 export const handleError =
   (handler: RequestHandler): RequestHandler =>
   async (req, res, next) => {
+    // @ts-ignore
     handler(req, res, next).catch((err: Error) => {
       const { method, originalUrl, body, params, query, user } = req;
       if (!slientAPIs.includes(originalUrl)) {

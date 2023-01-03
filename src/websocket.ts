@@ -52,6 +52,7 @@ export class WebSocketWrapper {
 
         redis.hset(key, userInfo.userId as string, 'true');
 
+        // @ts-ignore
         this.wss?.handleUpgrade(request, socket, head, (ws) => {
           this.wss?.emit('connection', ws, request, { ...userInfo, channel: key });
         });

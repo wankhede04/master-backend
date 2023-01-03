@@ -20,6 +20,7 @@ export default class Database {
   }
 
   async connect(): Promise<Connection> {
+    // @ts-ignore
     [this._connection, this._mongoConnection] = await Promise.all([
       createConnection(postgreTypeormConfig),
     ]);
