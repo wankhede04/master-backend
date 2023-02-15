@@ -1,4 +1,4 @@
-# Liquidation Bot
+# Master Backend
 
 [TODO]
 
@@ -63,7 +63,7 @@ psql -U postgres
 
 - Connect to database
 ```
-\c liquidation
+\c postgres
 ```
 
 ## Testing
@@ -82,7 +82,7 @@ INSERT INTO public.users (
     , last_login
 ) VALUES (
     'test',
-    'test@liquidation.ai',
+    'test@postgres.ai',
     '$2a$08$F0yBVt5F2rOKJWMWJxz14uQH8o.EwCEAnnaNFeIQ9oXuRZhc8lSEu',
     true,
     'super_admin',
@@ -98,7 +98,7 @@ Get Token:
 curl --location --request POST 'http://localhost:3334/auth/signin' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "email": "test@liquidation.ai",
+    "email": "test@postgres.ai",
     "password": "test123"
 }'
 ```
